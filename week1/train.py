@@ -64,7 +64,7 @@ def parse_args(args = sys.argv[1:]):
     Utility function for parsing command line arguments
     """
     parser = argparse.ArgumentParser(description='A simple script for training an image classifier')
-    parser.add_argument('--name_experiment',type=str,default='baseline',help='name of experiment')
+    parser.add_argument('--exp_name',type=str,default='baseline',help='name of experiment')
     parser.add_argument("--data_path", default="/home/adityassrana/datatmp/Datasets/MIT_split", help = "path to MITSplit Dataset")
     parser.add_argument("--max_epochs", type=int, default=5, help="number of epochs to train our models for")
     parser.add_argument("--lr", type=float, default=1e-3, help="base learning rate")
@@ -105,8 +105,8 @@ if __name__ == '__main__':
     # Setup Tensorboard
     # We're uisng two writers to visualiz train and test results together
     if args.tb:
-        writer_train = SummaryWriter(f'tb/{args.expname}/train')
-        writer_test = SummaryWriter(f'tb/{args.expname}/test')
+        writer_train = SummaryWriter(f'tb/{args.exp_name}/train')
+        writer_test = SummaryWriter(f'tb/{args.exp_name}/test')
 
     # Training and Testing Loop
     for epoch in range(args.max_epochs):
@@ -175,5 +175,5 @@ if __name__ == '__main__':
         print(f"Epoch{epoch}, train_accuracy:{train_acc_epoch:.4f}, test_accuracy:{test_acc_epoch:.4f}, train_loss:{train_loss_epoch:.4f}, test_loss:{test_loss_epoch:.4f}")
 
         if args.save_model:
-            torch.save(model.state_dict(),f"{args.expname}_epoch{epoch}_acc{train_acc_epoch:.4f}")
-print("Finished training and saved model")
+            torch.save(model.state_dict(),f"{args.exp_name}_epoch{epoch}_acc{train_acc_epoch:.4f}")
+print("Finished training")
