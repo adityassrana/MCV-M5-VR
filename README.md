@@ -6,4 +6,6 @@
 - Ian Riera Smolinska ([email](mailto:ianpau.riera@e-campus.uab.cat))
  
 ## Weekly Submission
-- Week 1. [code](https://github.com/IanRiera/MCV-M5/tree/main/week1). [slides](TBA)
+- Week 1
+    - [code](https://github.com/IanRiera/MCV-M5/tree/main/week1)
+    - [slides](TBA)
