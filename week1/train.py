@@ -9,19 +9,37 @@ from torchvision.utils import make_grid
 from torchsummary import summary
 from pathlib import Path
 import os, sys, argparse
-from tqdm import tqdm
-from tqdm.contrib import tenumerate
 
 def conv(ni, nf, ks=3, stride=1, padding=1, **kwargs):
+    """
+    Thin wrapper around nn.Conv2d to ensure kaiming initialization. The rest of the api
+    remains the same
+    """
     _conv = nn.Conv2d(ni, nf, kernel_size=ks, stride=stride, padding=padding,bias=False,**kwargs)
     nn.init.kaiming_normal_(_conv.weight)
     return _conv
 
-def block(ni, nf): 
-    _conv = conv(ni, nf, ks=3, stride=2, padding=1)
+def block(ni, nf, **kwargs):
+    """
+    Block function to play around with convolutions, activations and batchnorms.
+    Each part can be changed easily here and then used in the main function get_model()
+    Downsampling is done using stride 2
+
+    Args:
+        ni: number of input channels to conv layer
+        nf: number of output channels to conv layer
+
+    Returns:
+        A conv block
+
+    """
+    _conv = conv(ni, nf, ks=3, stride=2, padding=1, **kwargs)
     return nn.Sequential(_conv, nn.BatchNorm2d(nf), nn.ReLU())
 
 def get_model():
+    """
+    Create the main model using blocks, AdaptiveAvgPool and a Linear layer
+    """
     return nn.Sequential(
         block(3, 32),
         block(32, 64),
@@ -33,7 +51,16 @@ def get_model():
 
 def get_dataloaders(path:Path, img_size:int, batch_size:int, num_workers:int):
     """
-    Get train and test dataloaders
+    Get train and test dataloaders from the dataset
+
+    Args:
+        path: path to dataset
+        img_size: size of image to be used fo training (bilinear interpolation is used)
+        batch:size: batch size for dataloaders
+        num_workers: workers to be used for loading data
+
+    Returns:
+        train and test dataloaders
     """
 
     # configure data transforms for trainig and testing
@@ -64,15 +91,15 @@ def parse_args(args = sys.argv[1:]):
     Utility function for parsing command line arguments
     """
     parser = argparse.ArgumentParser(description='A simple script for training an image classifier')
-    parser.add_argument('--exp_name',type=str,default='baseline',help='name of experiment')
-    parser.add_argument("--data_path", default="/home/adityassrana/datatmp/Datasets/MIT_split", help = "path to MITSplit Dataset")
-    parser.add_argument("--max_epochs", type=int, default=5, help="number of epochs to train our models for")
-    parser.add_argument("--lr", type=float, default=1e-3, help="base learning rate")
+    parser.add_argument('--exp_name',type=str,default='baseline',help='name of experiment - for saving model and tensorboard dir')
+    parser.add_argument("--data_path", default="/home/adityassrana/datatmp/Datasets/MIT_split", help = "path to Dataset")
+    parser.add_argument("--max_epochs", type=int, default=5, help="number of epochs to train the model for")
+    parser.add_argument("--lr", type=float, default=1e-3, help="base learning rate to use for training")
     parser.add_argument("--image_size", type=int, default=64, help="image size for training")
     parser.add_argument("--batch_size", type=int, default=32, help="batch size for training")
     parser.add_argument("--num_workers", type=int, default=4, help="number of workers for loading data")
     parser.add_argument("--save_model", action="store_true", help = "to save the model at the end of each epoch")
-    parser.add_argument("--tb", action="store_true", help = "to write to tensorboard")
+    parser.add_argument("--tb", action="store_true", help = "to write results to tensorboard")
     args = parser.parse_args(args)
     return args
 
