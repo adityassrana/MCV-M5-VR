@@ -5,5 +5,5 @@
 - Òscar Lorente Corominas ([email](mailto:oscar.lorentec@e-campus.uab.cat))
 - Ian Riera Smolinska ([email](mailto:ianpau.riera@e-campus.uab.cat))
  
-## Link to Slides for each week
-- [Week1](to be added)
+## Weekly Submission
+- Week 1. [code](https://github.com/IanRiera/MCV-M5/tree/main/week1). [slides](TBA)
