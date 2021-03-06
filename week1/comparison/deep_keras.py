@@ -49,8 +49,7 @@ validation_samples = 807
 # weight initialization
 initializer = initializers.glorot_normal()
 
-# create the base pre-trained model
-#Build the Multi Layer Perceptron model
+# build the model
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(3, 3), strides=(1, 1), activation='relu',input_shape=(img_size, img_size, 3),padding='same', kernel_initializer=initializer,name='conv1'))
 model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2),name='pool1'))
