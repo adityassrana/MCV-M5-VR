@@ -55,10 +55,11 @@ optional arguments:
 
   - Matplotlib (using --plot_stats)
 
-    <img src="images/accuracy.png" width=20%>
-    <img src="images/loss.png" width=20%>
+    <img src="images/accuracy.png" width=30%>
+    <img src="images/loss.png" width=30%>
 
 
   - Tensorboard (using --tb)
-    <img src="images/tensorboard.png" height=400>
+    <br>  
+    <img src="images/tensorboard.png" width=60%>
 
