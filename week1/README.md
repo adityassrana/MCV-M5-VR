@@ -55,34 +55,10 @@ optional arguments:
 
   - Matplotlib (using --plot_stats)
 
-  <html>
-  <head>
-        <style>
-          * {
-          box-sizing: border-box;
-          }
-          .ul_class {
-          width: 100%;
-          display:block;
-          text-align: center;
-          }
-          .li_class {
-          width: 33.33%;
-          display:inline-block;
-          margin-right: -4px;
-          }
-        </style>
-    </head>
-    <body>
-        <ul class="ul_class">
-          <li class="li_class"><img src="images/accuracy.png" alt="Accuracy" style="width:90%"></li>
-          <li class="li_class"><img src="images/loss.png" alt="Loss" style="width:90%"></li>
-        </ul>
-    </body>
-  </html>
+    <img src="images/accuracy.png" width=20%>
+    <img src="images/loss.png" width=20%>
 
 
   - Tensorboard (using --tb)
-  
-  <center> <img src="images/tensorboard.png" height=500> </center>
+    <img src="images/tensorboard.png" height=400>
 
