@@ -17,10 +17,16 @@ This training script can be used to train a baseline image classification model 
 ````
 ## Training Script Usage
 
+### Sample
+````
+python train.py --max_epochs 25 --lr 1e-4 --tb --plot_stats
+````
+
+### Full Script
 ````
 $ python train.py -h
-usage: train.py [-h] [--exp_name EXP_NAME] [--data_path DATA_PATH] [--max_epochs MAX_EPOCHS] [--lr LR] [--image_size IMAGE_SIZE] [--batch_size BATCH_SIZE] [--num_workers NUM_WORKERS] [--save_model]
-                [--tb]
+usage: train_aditya.py [-h] [--exp_name EXP_NAME] [--data_path DATA_PATH] [--max_epochs MAX_EPOCHS] [--lr LR] [--image_size IMAGE_SIZE]
+                       [--batch_size BATCH_SIZE] [--num_workers NUM_WORKERS] [--save_model] [--tb] [--plot_stats]
 
 A simple script for training an image classifier
 
@@ -40,4 +46,43 @@ optional arguments:
                         number of workers for loading data
   --save_model          to save the model at the end of each epoch
   --tb                  to write results to tensorboard
+  --plot_stats          to save matplotlib plots of train-test loss and accuracy
 ````
+
+### Visualize Statistics
+ 
+ You can either use tensorboard or plot the statistics as a matplotlib figure.
+
+  - Matplotlib (using --plot_stats)
+
+  <html>
+  <head>
+        <style>
+          * {
+          box-sizing: border-box;
+          }
+          .ul_class {
+          width: 100%;
+          display:block;
+          text-align: center;
+          }
+          .li_class {
+          width: 33.33%;
+          display:inline-block;
+          margin-right: -4px;
+          }
+        </style>
+    </head>
+    <body>
+        <ul class="ul_class">
+          <li class="li_class"><img src="images/accuracy.png" alt="Accuracy" style="width:90%"></li>
+          <li class="li_class"><img src="images/loss.png" alt="Loss" style="width:90%"></li>
+        </ul>
+    </body>
+  </html>
+
+
+  - Tensorboard (using --tb)
+  
+  <center> <img src="images/tensorboard.png" height=500> </center>
+

@@ -9,6 +9,7 @@ from torchvision.utils import make_grid
 from torchsummary import summary
 from pathlib import Path
 import os, sys, argparse
+import matplotlib.pyplot as plt
 
 def conv(ni, nf, ks=3, stride=1, padding=1, **kwargs):
     """
@@ -86,6 +87,24 @@ def get_dataloaders(path:Path, img_size:int, batch_size:int, num_workers:int):
 
     return train_loader, test_loader
 
+def plot_hist(train_stat, test_stat, stat_name='accuracy', baseline=None, xmax=20, location='lower right'):
+    """
+    create matplotlib figures for training statistics
+    """
+    plt.plot(train_stat)
+    plt.plot(test_stat)
+    if baseline is not None:
+        plt.hlines(baseline, 0, xmax, 'g')
+    plt.title(f"Model {stat_name}")
+    plt.ylabel(f"{stat_name}")
+    plt.xlabel('epoch')
+    if baseline is not None:
+        plt.legend(['train', 'validation', 'baseline - keras'], loc=location)
+    else:
+        plt.legend(['train', 'validation'], loc=location)
+    plt.savefig(f"{stat_name}.png")
+    plt.close()   
+
 def parse_args(args = sys.argv[1:]):
     """
     Utility function for parsing command line arguments
@@ -100,6 +119,7 @@ def parse_args(args = sys.argv[1:]):
     parser.add_argument("--num_workers", type=int, default=4, help="number of workers for loading data")
     parser.add_argument("--save_model", action="store_true", help = "to save the model at the end of each epoch")
     parser.add_argument("--tb", action="store_true", help = "to write results to tensorboard")
+    parser.add_argument("--plot_stats", action="store_true", help = "to save matplotlib plots of train-test loss and accuracy")
     args = parser.parse_args(args)
     return args
 
@@ -135,6 +155,12 @@ if __name__ == '__main__':
         writer_train = SummaryWriter(f'tb/{args.exp_name}/train')
         writer_test = SummaryWriter(f'tb/{args.exp_name}/test')
 
+    # histograms
+    train_acc_hist = []
+    test_acc_hist = []
+    train_loss_hist = []
+    test_loss_hist = []
+
     # Training and Testing Loop
     for epoch in range(args.max_epochs):
         model.train()
@@ -167,6 +193,9 @@ if __name__ == '__main__':
         train_loss_epoch = sum(losses)/n
         train_acc_epoch = sum(acc)/n
 
+        train_loss_hist.append(train_loss_epoch)
+        train_acc_hist.append(train_acc_epoch)
+
         if args.tb:    
             # write to tensorboard
             writer_train.add_scalar('per_epoch/losses',train_loss_epoch, epoch)
@@ -194,6 +223,10 @@ if __name__ == '__main__':
         test_loss_epoch = sum(losses)/n
         test_acc_epoch = sum(acc)/n
         
+
+        test_loss_hist.append(test_loss_epoch)
+        test_acc_hist.append(test_acc_epoch)
+
         if args.tb:
             # write to tensorboard
             writer_test.add_scalar('per_epoch/losses', test_loss_epoch, epoch)
@@ -203,4 +236,11 @@ if __name__ == '__main__':
 
         if args.save_model:
             torch.save(model.state_dict(),f"{args.exp_name}_epoch{epoch}_acc{train_acc_epoch:.4f}")
-print("Finished training")
+            print("Model saved")
+
+    print("Finished training")
+    
+    if args.plot_stats:
+        plot_hist(train_acc_hist, test_acc_hist, 'accuracy', xmax=args.max_epochs, location='lower right')
+        plot_hist(train_loss_hist, test_loss_hist, 'loss', xmax=args.max_epochs, location='upper right')
+        print("Finished plotting")
