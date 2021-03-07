@@ -7,4 +7,4 @@
  
 ## Week 1
 - [code and documentation](https://github.com/IanRiera/MCV-M5/tree/main/week1)
-- [slides](https://docs.google.com/presentation/d/1rLOBnNIoh-hieCmome3ThuPEOEoOZNxmWqUkttdUrWA/edit#slide=id.p)
+- [slides](https://docs.google.com/presentation/d/1h5jdP4lXGR8VgvhVh47yqUHJ9bJFIs4zSOKA_SLklZ4/edit?usp=sharing)
