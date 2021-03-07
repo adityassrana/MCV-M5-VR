@@ -17,9 +17,10 @@ This training script can be used to train a baseline image classification model 
 ````
 ## Training Script Usage
 
-### Sample
+Running training is as simple as
+
 ````
-python train.py --max_epochs 25 --lr 1e-4 --tb --plot_stats
+python train.py --data_path "/Datasets/MIT_split" --max_epochs 25 --lr 1e-4 --tb --plot_stats
 ````
 
 ### Full Script
