@@ -11,5 +11,5 @@
 
 ## Week 2
 - [code and documentation](https://github.com/IanRiera/MCV-M5/tree/main/week2)
-- [slides](https://docs.google.com/presentation/d/1h5jdP4lXGR8VgvhVh47yqUHJ9bJFIs4zSOKA_SLklZ4/edit?usp=sharing)
+- [slides](https://docs.google.com/presentation/d/1vZrX3xlyCbwh5ykgPnVMY2CsR5FlvhLXxBoS3dFYsWE/edit?usp=sharing)
 - [Review of SOTA](https://www.overleaf.com/read/bczqrzwrgykr)
