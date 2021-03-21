@@ -17,4 +17,4 @@
 ## Week 3
 - [code and documentation](https://github.com/IanRiera/MCV-M5/tree/main/week3)
 - [slides](https://docs.google.com/presentation/d/1xrv3KUThOgp_U02eDem_Zr682JJpCaO0sxU3Aw7qRFI/edit?usp=sharing)
-- [Experiments section on Overleaf](https://www.overleaf.com/read/bczqrzwrgykr)
+- [Experiments section added on Overleaf](https://www.overleaf.com/read/xmtnnfydjtdb)
