@@ -22,4 +22,4 @@
 ## Week 4
 - [code and documentation](https://github.com/IanRiera/MCV-M5/tree/main/week4)
 - [slides](https://docs.google.com/presentation/d/1J4Hdr2Lo8MQL4JE1Jc5x9-D2dtSdhhjgJFk4IyQQHZ0/edit?usp=sharing)
-- [Experiments section added on Overleaf](https://www.overleaf.com/read/rjyzfhbjgzxt)
+- [Experiments section updated on Overleaf](https://www.overleaf.com/read/rjyzfhbjgzxt)
