@@ -25,7 +25,7 @@ def parse_args(args=sys.argv[1:]):
                         choices=['faster', 'mask'],
                         help='pre-trained model to run inference on out-of-context dataset')
 
-    parser.add_argument('--data', type=str, default='/home/group02/mcv/datasets/out_of_context',
+    parser.add_argument('--data', type=str, default='/home/group02/mcv/data/task_a',
                         help='data path')
 
     parser.add_argument('--output', type=str, default='/home/group02/week5/results/task_a',
