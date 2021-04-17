@@ -4,8 +4,6 @@ The goal of this week is to use the Detectron2 framework by running inference on
 
 ## Tasks
 
-The main tasks are divided in three files: task_a, task_b and task_c, but other files are included to help obtaining the results provided in the slides.
-
 * Task a: Running inference on [Out of Context](http://people.csail.mit.edu/myungjin/publications/outOfContext.pdf) dataset.
 
 Based on the [The Elephant in the Room](https://arxiv.org/pdf/1808.03305.pdf) paper:
