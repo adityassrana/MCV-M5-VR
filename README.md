@@ -25,8 +25,8 @@
 - [Experiments section updated on Overleaf](https://www.overleaf.com/read/rjyzfhbjgzxt)
 
 # Week 5
-- [code and documentation]()
-- [slides](https://docs.google.com/presentation/d/1F6EdDpjl0oWy2dfl9S0vbGN5zTEdXxRNTPppgK4JD44/edit#slide=id.gcab417a1d4_5_0)
+- [code and documentation](https://github.com/IanRiera/MCV-M5/tree/main/week5)
+- [slides](https://docs.google.com/presentation/d/1F6EdDpjl0oWy2dfl9S0vbGN5zTEdXxRNTPppgK4JD44/edit?usp=sharing)
 - [Experiments section updated on Overleaf]()
 
 
