@@ -1,10 +1,12 @@
-# Team 02: MCV-M5 Visual Recognition Project: Object Detection and Segmentation
+# Team 02: MCV-M5 Visual Recognition Project: Scene Understanding for Autonomous Driving
 
 ### Members
 - Aditya Sangram Singh Rana ([email](mailto:adityasangramsingh.rana@e-campus.uab.cat))
 - Òscar Lorente Corominas ([email](mailto:oscar.lorentec@e-campus.uab.cat))
 - Ian Riera Smolinska ([email](mailto:ianpau.riera@e-campus.uab.cat))
- 
+
+**Final Report** [Arxiv Link](https://arxiv.org/abs/2105.04905)
+
 ## Week 1
 - [code and documentation](https://github.com/IanRiera/MCV-M5/tree/main/week1)
 - [slides](https://docs.google.com/presentation/d/1h5jdP4lXGR8VgvhVh47yqUHJ9bJFIs4zSOKA_SLklZ4/edit?usp=sharing)
